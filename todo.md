@@ -9,7 +9,4 @@ serviceClaims:
         name: example-rabbitmq-cluster-1
 ```
 
-Need to figure out why
-
-
-Also, where is app in tap-gui? 
+- Also, where is app in tap-gui? 
