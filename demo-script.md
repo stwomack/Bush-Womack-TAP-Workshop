@@ -10,7 +10,7 @@ Bush Womack TAP App Workshop
 6. Show workshop yaml /tap/workload.yaml
 7. Add project to github rep
 8. Deploy via TAP
-9. Single sensor data only. 
+9. Single sensor data only 
 
 ## Script Steps, Steve:
 1. Start with Spring/Java App Developer. I'm Steve, I'm good at Dev, but new to K8s
@@ -22,7 +22,7 @@ Bush Womack TAP App Workshop
 
 ## Script Steps, John:
 1. Iterate - Multiple sensors, not just the one we had initially
-2. Change , commit, watch rebuild & deploy. 
+2. Change , commit, watch rebuild & deploy
 3. Show RMQ mgmt GUI
 
 ## Script Steps, Steve:
