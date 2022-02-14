@@ -19,7 +19,7 @@ Bush Womack TAP App Workshop
     * `tanzu accelerator create dotnet-sensors-rabbit --git-repository https://github.com/fjb4/dotnet-sensors-rabbit --git-branch master`
 
 
-** java app
+## java app
 * open your tap gui
 * select spring-sensors
 * download the zip
@@ -27,7 +27,12 @@ Bush Womack TAP App Workshop
 * add to your git org
 * tap deploy
 
-
-** dotnet app
+## dotnet app
+* register the app template in your AppAcc
 * open your tap gui
+* select spring-sensors-dotnet
+* download the zip
+* extract
+* add to your git org
+* tap deploy
 
