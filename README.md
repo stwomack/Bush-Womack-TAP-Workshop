@@ -77,10 +77,9 @@ This has been tested with .NET 6 and TAP 1.0.
    * `git init`
    * `git add -A .`
    * `git commit -m "initial commit"`
-   * `git remote add origin git@github.com:<GITHUB-REPO-URL>.git`
+   * `git remote add origin git@github.com:<{your-repo}/sensors-demo>.git`
    * `git branch -M main`
    * `git push -u origin main`
-* Using your usual IDE or terminal, add the project to your newly created repo
 * Deploy the application via TAP (substitute your actual repo url in when running the following command):
    * ```tanzu app workload create sensors-demo --git-repo https://github.com/{your-repo}/sensors-demo --git-branch main --type web --service-ref "rmq=rabbitmq.com/v1beta1:RabbitmqCluster:default:example-rabbitmq-cluster-1"```
 * In a terminal window, tail the application as TAP builds and deploys it:
