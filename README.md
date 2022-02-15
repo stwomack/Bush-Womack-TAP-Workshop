@@ -38,5 +38,8 @@ Bush Womack TAP App Workshop
 8. Review/verfiy the "App Accelerator inputs" and click **"CREATE"**
    * Optional, click **"EXPLORE ZIP FILE"** to review the template's project and structure
 10. Click **"DOWNLOAD ZIP FILE"** to proceed. The zip file will be saved to your default download directory (often ~/Downloads)
-12. Deploy the application via TAP:  
+11. Extract the zip file using whatever method you typically use. For example `unzip sensors-demo.zip`
+12. Create a repo for the project in your source control, for example GitHub.com
+13. Using your usual IDE or terminal, add the project to your newly created rep
+14. Deploy the application via TAP:  
  ```tanzu app workload create sensors-demo --git-repo https://github.com/stwomack/sensors-demo --git-branch main --type web --service-ref "rmq=rabbitmq.com/v1beta1:RabbitmqCluster:default:example-rabbitmq-cluster-1"```
