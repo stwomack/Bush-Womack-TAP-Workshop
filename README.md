@@ -29,20 +29,26 @@ Bush Womack TAP App Workshop
 * tap deploy
 
 ### Create and deploy the SpringBoot Application that gets readings from the queue and displays them:
-1. Open your TAP web Interface, for example:  [http://tap-gui.tap.jbush.io/create](http://tap-gui.tap.jbush.io/create)
-3. Find the "Spring Sensors" application, and click the **"CHOOSE"** button
+* Open your TAP web Interface, for example:  [http://tap-gui.tap.jbush.io/create](http://tap-gui.tap.jbush.io/create)
+* Find the "Spring Sensors" application, and click the **"CHOOSE"** button
    * Optional, click **"VIEW REPOSITORY"** to review the template's repository
-5. On the **"App Accelerator inputs"** page, change the **Name** to "sensors-demo". The rest of the fields can remain their defaults
+* On the **"App Accelerator inputs"** page, change the **Name** to "sensors-demo". The rest of the fields can remain their defaults
    * Optional, click **"EXPLORE"** to review the template's project and structure
-7. Click **"NEXT STEP"** to proceed
-8. Review/verfiy the "App Accelerator inputs" and click **"CREATE"**
+* Click **"NEXT STEP"** to proceed
+* Review/verfiy the "App Accelerator inputs" and click **"CREATE"**
    * Optional, click **"EXPLORE ZIP FILE"** to review the template's project and structure
-10. Click **"DOWNLOAD ZIP FILE"** to proceed. The zip file will be saved to your default download directory (often ~/Downloads)
-11. Extract the zip file using whatever method you typically use. For example `unzip sensors-demo.zip`
-12. Create a repo for the project in your source control system, for example GitHub.com
-13. Using your usual IDE or terminal, add the project to your newly created repo
-14. Deploy the application via TAP (substitute your actual repo url in when running the following command):  
+* Click **"DOWNLOAD ZIP FILE"** to proceed. The zip file will be saved to your default download directory (often ~/Downloads)
+* Extract the zip file using whatever method you typically use. For example `unzip sensors-demo.zip`
+* Initialize a local git repository, commit your code, and push to GitHub
+   * `git init`
+   * `git add -A .`
+   * `git commit -m "initial commit"`
+   * `git remote add origin git@github.com:<GITHUB-REPO-URL>.git`
+   * `git branch -M main`
+   * `git push -u origin main`
+* Using your usual IDE or terminal, add the project to your newly created repo
+* Deploy the application via TAP (substitute your actual repo url in when running the following command):  
  ```tanzu app workload create sensors-demo --git-repo https://github.com/{your-repo}/sensors-demo --git-branch main --type web --service-ref "rmq=rabbitmq.com/v1beta1:RabbitmqCluster:default:example-rabbitmq-cluster-1"```
    * In a terminal window, tail the application as TAP builds and deploys it:    
    `tanzu apps workload tail sensors-demo`
- 15. Verify that the application is running by visiting its url, for example http://sensors-demo.default.tap.jbush.io/
+* Verify that the application is running by visiting its url, for example http://sensors-demo.default.tap.jbush.io/
