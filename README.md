@@ -70,7 +70,9 @@ This has been tested with .NET 6 and TAP 1.0.
 * Review/verfiy the "App Accelerator inputs" and click **"CREATE"**
    * Optional, click **"EXPLORE ZIP FILE"** to review the template's project and structure
 * Click **"DOWNLOAD ZIP FILE"** to proceed. The zip file will be saved to your default download directory (often ~/Downloads)
-* Extract the zip file using whatever method you typically use. For example `unzip sensors-demo.zip`
+* Unzip the downloaded sensors-demo.zip file and move to the newly created sensors-demo folder
+  * `unzip ~/Downloads/sensors-demo`
+  * `cd sensors-demo`
 * Initialize a local git repository, commit your code, and push to GitHub
    * `git init`
    * `git add -A .`
