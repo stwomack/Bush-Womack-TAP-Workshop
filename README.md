@@ -92,7 +92,7 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
 
 #### Update the .NET application to emit data for multiple sensors
 
-* In your web browser, go to your GitHub repository and view the file `./src/SensorHostedService.cs`
+* In your web browser or IDE, go to your GitHub repository and view the file `./src/SensorHostedService.cs`
 * Update the application to emit data for two sensors by editing the file and changing line 15 to the following:
   * `AddSensor(2)`
 * Commit the change and wait for TAP to redeploy the application
@@ -102,4 +102,8 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
 
 #### Update the SpringBoot application to display rounded values for the temperature and pressure sensor data
 
-* TODO
+* In your web browser or IDE, go to your GitHub repository and view the file `./src/SensorHostedService.cs`
+* Update the application to round the measurement data by editing the file and changing line 15 to the following:
+  * `Math.round()`
+* Commit the change and wait for TAP to redeploy the application
+* Refresh the running application again in the web brower and notice that it now shows the measurements rounded
