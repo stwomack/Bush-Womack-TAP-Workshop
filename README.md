@@ -1,6 +1,6 @@
 # Bush Womack TAP App Workshop
 Bush Womack TAP App Workshop
-# Deploying .NET and Spring applications to Kubernetes via Tanzu Application Platform”
+## Deploying .NET and Spring applications to Kubernetes via Tanzu Application Platform”
 
 This is a .NET web site that is intended to be used in conjunction with the [spring-sensors](https://github.com/sample-accelerators/spring-sensors) Application Accelerator. These two applications are intended to be deployed together in a Kubernetes cluster running  [Tanzu Application Platform](https://tanzu.vmware.com/application-platform) (TAP). This .NET application can be used to publish random sensor data to RabbitMQ, and the Spring application can consume that data and display it.
 
@@ -10,7 +10,7 @@ These applications can be used together to demonstrate TAP's ability to easily b
 
 This has been tested with .NET 6 and TAP 1.0. These instructions assume you have [kubectl installed](https://kubernetes.io/docs/tasks/tools/) as well as the [Tanzu CLI](https://docs.vmware.com/en/Tanzu-Application-Platform/1.0/tap/GUID-install-general.html) that comes with TAP. Note that all CLI commands have only been tested on macOS.
 
-## Before Starting
+### Before Starting
 
 * Provision a Kubernetes cluster
 * [Install TAP](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) into the cluster using the "full" profile
@@ -28,9 +28,9 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
     * `tanzu accelerator create dotnet-sensors-rabbit --git-repository https://github.com/fjb4/dotnet-sensors --git-branch main`
 * Create an empty GitHub repository for your .NET Sensor application and note its URL.
 
-## Demo Script
+### Workshop Steps
 
-### Create and deploy a .NET application that emits data for a single sensor
+#### Create and deploy a .NET application that emits data for a single sensor
 
 * Generate application skeleton using .NET Sensors app accelerator
   * Navigate to Application Accelerator section of TAP GUI and choose the ".NET Sensors" template
@@ -63,7 +63,7 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
       * `kubectl rabbitmq manage example-rabbitmq-cluster-1`
     * View queue activity by going to "Queues" and selecting the queue with a name starting with "sensor-data"
 
-### Create and deploy the SpringBoot application that gets readings from the queue and displays them
+#### Create and deploy the SpringBoot application that gets readings from the queue and displays them
 
 * Open your TAP web Interface, for example:  [http://tap-gui.tap.jbush.io/create](http://tap-gui.tap.jbush.io/create)
 * Find the "Spring Sensors" application, and click the **"CHOOSE"** button
@@ -90,7 +90,7 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
    * `tanzu apps workload tail sensors-demo`
 * Verify that the application is running by visiting its url, for example http://sensors-demo.default.tap.jbush.io/
 
-### Update the .NET application to emit data for multiple sensors
+#### Update the .NET application to emit data for multiple sensors
 
 * In your web browser, go to your GitHub repository and view the file `./src/SensorHostedService.cs`
 * Update the application to emit data for two sensors by editing the file and changing line 15 to the following:
@@ -100,6 +100,6 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
   * At the top of the page, click "Start" to have this new version of the application begin emitting sensor data
 * Using the same commands as above, view the sensor data being written to the queue
 
-### Update the SpringBoot application to display rounded values for the temperature and pressure sensor data
+#### Update the SpringBoot application to display rounded values for the temperature and pressure sensor data
 
 * TODO
