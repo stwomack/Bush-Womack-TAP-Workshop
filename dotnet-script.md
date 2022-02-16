@@ -6,7 +6,7 @@ These applications can be used together to demonstrate TAP's ability to easily b
 
 .NET Sensors is provided as an [application accelerator](https://docs.vmware.com/en/Application-Accelerator-for-VMware-Tanzu/index.html) template for TAP.
 
-This has been tested with .NET 6 and TAP 1.0.
+This has been tested with .NET 6 and TAP 1.0. These instructions assume you have [kubectl installed](https://kubernetes.io/docs/tasks/tools/) as well as the [Tanzu CLI](https://docs.vmware.com/en/Tanzu-Application-Platform/1.0/tap/GUID-install-general.html) that comes with TAP. Note that all CLI commands have only been tested on macOS.
 
 ## Before Starting
 
@@ -14,7 +14,7 @@ This has been tested with .NET 6 and TAP 1.0.
 * [Install TAP](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) into the cluster using the "full" profile
 * Install RabbitMQ
   * Install [RabbitMQ cluster operator](https://github.com/rabbitmq/cluster-operator)
-    * `kapp deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/download/v1.11.1/cluster-operator.yml `
+    * `kapp -y deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/download/v1.9.0/cluster-operator.yml `
 
   * Assign permissions
     * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/master/k8s/rabbitmqcluster-read-write.yaml`
@@ -47,8 +47,8 @@ This has been tested with .NET 6 and TAP 1.0.
 * Create a TAP workload
   * `tanzu apps workload create -f ./config/workload.yaml`
 * Monitor workload status and get its URL once app has been deployed and is running
-  * `tanzu apps workload tail dotnet-sensors-rabbit`
-  * `tanzu apps workload get dotnet-sensors-rabbit`
+  * `tanzu apps workload tail dotnet-sensors`
+  * `tanzu apps workload get dotnet-sensors`
 * View running application in web browser and click "Start" at the top of the page
   * Note that it shows the sensor id of the sensor for which it is emitting data
 * View sensor data being written to the RabbitMQ cluster
@@ -67,6 +67,6 @@ This has been tested with .NET 6 and TAP 1.0.
 * Update the application to emit data for two sensors by editing the file and changing line 15 to the following:
   * `AddSensor(2)`
 * Commit the change and wait for TAP to redeploy the application
-* Refresh the running application again in the web brower and notice that it now shows two Sensor Ids
-  * At the top of the page, click "Start" to have this new version of the application begin publishing sensor data
+* Refresh the running application again in the web brower and notice that it now shows two sensor ids
+  * At the top of the page, click "Start" to have this new version of the application begin emitting sensor data
 * Using the same commands as above, view the sensor data being written to the queue
