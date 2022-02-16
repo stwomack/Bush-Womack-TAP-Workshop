@@ -1,6 +1,6 @@
 # Bush Womack TAP App Workshop
 Bush Womack TAP App Workshop
-# .NET Sensors
+# Deploying .NET and Spring applications to Kubernetes via Tanzu Application Platform”
 
 This is a .NET web site that is intended to be used in conjunction with the [spring-sensors](https://github.com/sample-accelerators/spring-sensors) Application Accelerator. These two applications are intended to be deployed together in a Kubernetes cluster running  [Tanzu Application Platform](https://tanzu.vmware.com/application-platform) (TAP). This .NET application can be used to publish random sensor data to RabbitMQ, and the Spring application can consume that data and display it.
 
