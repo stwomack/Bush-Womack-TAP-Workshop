@@ -19,8 +19,9 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
         * `kapp -y deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/download/v1.9.0/cluster-operator.yml `
 
     * Assign permissions
+        * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/main/k8s/resource-claims-rmq.yaml`
         * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/master/k8s/rabbitmqcluster-read-write.yaml`
-
+        
     * Create the "example-rabbitmq-cluster-1" RabbitMQ cluster that will be used by the .NET and Spring Sensors applications (wait for it to complete)
         * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/master/k8s/rabbitmq-cluster.yaml`
     * Lastly, install the [RabbitMQ Cluster Operator Plugin for kubectl](https://www.rabbitmq.com/kubernetes/operator/kubectl-plugin.html) so you're able to monitor activity in RabbitMQ
