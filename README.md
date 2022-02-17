@@ -103,8 +103,21 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
 
 #### Update the SpringBoot application to display rounded values for the temperature and pressure sensor data
 
-* In your web browser or IDE, go to your GitHub repository and view the file `./src/SensorHostedService.cs`
-* Update the application to round the measurement data by editing the file and changing line 15 to the following:
-  * `Math.round()`
+* In your web browser or IDE, go to your GitHub repository and view the file `src/main/java/org/tanzu/demo/SensorsUiController.java`
+* Update the application to round the measurement data by editing the file and changing the fetchUI() method to the following:  
+```
+@GetMapping
+public String fetchUI(Model model) throws Exception {
+    var formattedSensorData = sensorRepository.findAll()
+            .stream().map(s -> new SensorData(
+                            s.getId(),
+                            Math.round(s.getTemperature() * 100) / 100.0d,
+                            Math.round(s.getPressure() * 100) / 100.0d
+                    )
+            ).collect(java.util.stream.Collectors.toList());
+    model.addAttribute("title", title);
+    return "index";
+}
+```  
 * Commit the change and wait for TAP to redeploy the application
 * Refresh the running application again in the web brower and notice that it now shows the measurements rounded
