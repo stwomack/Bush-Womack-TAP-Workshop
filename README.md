@@ -21,7 +21,7 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
     * Assign permissions
         * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/main/k8s/resource-claims-rmq.yaml`
         * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/master/k8s/rabbitmqcluster-read-write.yaml`
-        
+
     * Create the "example-rabbitmq-cluster-1" RabbitMQ cluster that will be used by the .NET and Spring Sensors applications (wait for it to complete)
         * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/master/k8s/rabbitmq-cluster.yaml`
     * Lastly, install the [RabbitMQ Cluster Operator Plugin for kubectl](https://www.rabbitmq.com/kubernetes/operator/kubectl-plugin.html) so you're able to monitor activity in RabbitMQ
@@ -95,7 +95,7 @@ This has been tested with .NET 6 and TAP 1.0. These instructions assume you have
 
 * In your web browser or IDE, go to your GitHub repository and view the file `./src/SensorHostedService.cs`
 * Update the application to emit data for two sensors by editing the file and changing line 15 to the following:
-  * `AddSensor(2)`
+  * `AddSensor(2);`
 * Commit the change and wait for TAP to redeploy the application
 * Refresh the running application again in the web brower and notice that it now shows two sensor ids
   * At the top of the page, click "Start" to have this new version of the application begin emitting sensor data
